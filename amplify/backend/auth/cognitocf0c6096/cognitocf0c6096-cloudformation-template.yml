@@ -168,8 +168,6 @@ Resources:
     Type: AWS::Cognito::UserPool
     Properties:
       UserPoolName: !If [ShouldNotCreateEnvResources, !Ref userPoolName, !Join ['',[!Ref userPoolName, '-', !Ref env]]]
-      UsernameAttributes:
-        - 'email'
       Schema:
 
         -
