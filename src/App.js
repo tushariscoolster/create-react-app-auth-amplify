@@ -2,9 +2,29 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { withAuthenticator } from 'aws-amplify-react'
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import aws_exports from './aws-exports';
 Amplify.configure(aws_exports);
+
+const authConfig = {
+  signUpConfig: {
+    hiddenDefaults: ['phone_number','username'],
+    signUpFields: [
+      {
+        label: 'Password',
+        key: 'password',
+        required: true,
+        type: 'password'
+      },
+      {
+        label: 'Email',
+        key: 'email',
+        required: true,
+        type: 'string'
+      }
+    ]
+  }
+}
 
 class App extends Component {
   render() {
@@ -29,4 +49,4 @@ class App extends Component {
   }
 }
 
-export default withAuthenticator(App, true);
+export default withAuthenticator(App, authConfig);
