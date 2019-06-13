@@ -8,7 +8,7 @@ Amplify.configure(aws_exports);
 
 const authConfig = {
   signUpConfig: {
-    hiddenDefaults: ['username'],
+    hiddenDefaults: ['username','phone_number','email'],
     signUpFields: [
       {
         label: 'Email',
@@ -24,14 +24,6 @@ const authConfig = {
         required: true,
         displayOrder: 2,
         type: 'password',
-        custom: false
-      },
-      {
-        label: 'Phone Number',
-        key: 'phone_number',
-        required: true,
-        displayOrder: 3,
-        type: 'tel',
         custom: false
       }
     ]
